@@ -1,14 +1,37 @@
 Rails.application.routes.draw do
 
-  root 'articles#index'
+  root "welcome#index"
+
+    # ARTICLES CONTROLLER
+   get "/articles" => "articles#index", as: "articles"
+   get "/articles/:id" => "articles#show", as: "article"
+   get "/articles/new" => "articles#new", as: "new_article"
+   post "/articles" => "articles#create"
+   # ADMIN ONLY
+   delete "/articles/:id" => "articles#destroy"
+
+   # REVISIONS CONTROLLER
+  get "/articles/:id/revisions" => "revisions#index", as: "article_revisions"
+  get "/articles/:id/revisions/new" => "revision#new", as: "new_article_revision"
+  get "/articles/:id/revisions/:id" => "revisions#show", as: "article_revision"
+  post "articles/:id/revisions" => "revisions#create"
+
+  # USERS CONTROLLER - ADMIN ONLY
+  get "/users/:id" => "users#show", as: "user"
+  put "/users/:id" => "users#update"
+  delete "/users/:id" => "users#destroy"
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # root "welcome#index"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
+
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

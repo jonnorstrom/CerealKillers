@@ -437,3 +437,4 @@ Started GET "/articles" for ::1 at 2016-05-04 16:08:01 -0500
 Processing by ArticlesController#index as HTML
   Rendered articles/show.html.erb (0.0ms)
 Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users"[0m

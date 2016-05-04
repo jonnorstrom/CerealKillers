@@ -1,7 +1,7 @@
 class RevisionsController < ActionController::Base
   def new
     @revision = Revision.new
-    # render?
+    render 'new'
   end
 
   def create
@@ -15,8 +15,8 @@ class RevisionsController < ActionController::Base
   end
 
   def index
-    @article = Article.find(params[:article_id])
-    @revisions = @article.revisions
+    # @article = Article.find(params[:article_id])
+    @revisions = Revision.all
     # show all revisions for one speicific article
     # render something
   end

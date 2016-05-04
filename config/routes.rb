@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root "welcome#index"
 
     # ARTICLES CONTROLLER
@@ -17,9 +18,9 @@ Rails.application.routes.draw do
   post "articles/:id/revisions" => "revisions#create"
 
   # USERS CONTROLLER - ADMIN ONLY
-  get "/users/:id" => "users#show", as: "user"
-  put "/users/:id" => "users#update"
-  delete "/users/:id" => "users#destroy"
+  # get "/users/:id" => "users#show", as: "user"
+  # put "/users/:id" => "users#update"
+  # delete "/users/:id" => "users#destroy"
 
 
 

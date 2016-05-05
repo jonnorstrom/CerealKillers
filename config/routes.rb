@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :controllers => {registration: 'registrations'}
   root "welcome#index"
 
     # ARTICLES CONTROLLER
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   #ADMIN CONTROLLER
   get "/admins" => "admins#index", as: "admins"
+  post "/admins/:id" => "admins#create"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

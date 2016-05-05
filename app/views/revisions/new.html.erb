@@ -1,1 +1,10 @@
-<%= render 'form' %>
+<div class="new_article">
+  <h2><%= @prev_revision.article.title %></h2>
+  <p id="notice">
+    <span><strong>Notice:</strong> Below is a template for what we think is the best way to represent your cereal!
+    </span>
+  </p>
+  <p id="do-not-delete"><strong><span>Do not delete section titles!</span></strong>
+  </p>
+  <%= render 'form' %>
+</div>

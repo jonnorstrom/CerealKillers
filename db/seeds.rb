@@ -9,3 +9,4 @@
   User.create(id: 1, email: "admin@admin.com", name: "dukeg", password:"password")
   User.create(id: 2, email: "e@e.com", name:"ello21", password: "password")
 
+

@@ -5,6 +5,7 @@ schema.rb
 *.log
 schema.rb
 
+/log
 /.config
 /coverage/
 /InstalledFiles

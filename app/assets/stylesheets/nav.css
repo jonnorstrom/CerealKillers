@@ -8,14 +8,14 @@
 
 .layout nav {
   position: absolute;
-  right: 0;
-  top: 50px;
+  right: 10px;
+  bottom: 5px;
   display: inline-block;
 }
 
 .layout h1 {
   position: absolute;
-  left: 8%;
+  left: 15px;
   font-size: 3em;
   display: inline-block;
 }
@@ -23,4 +23,21 @@
 .layout{
   width: 100%;
   border: solid 1px black;
+}
+
+.rev-heading {
+  text-align: center;
+  width: 800px;
+  margin: auto;
+}
+
+.article-body-container {
+  width: 900px;
+  margin: auto;
+}
+
+#revision-history {
+  font-size: 18px;
+  position: relative;
+  bottom: 9px;
 }

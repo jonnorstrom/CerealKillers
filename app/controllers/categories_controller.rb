@@ -1,2 +1,2 @@
-class CategoriesController < ActionController::Base
+class CategoriesController < ApplicationController
 end

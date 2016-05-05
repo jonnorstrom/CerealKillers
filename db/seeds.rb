@@ -6,8 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+  User.create(id: 1, email: "admin@admin.com", name: "dukeg", password:"password")
+  User.create(id: 2, email: "e@e.com", name:"ello21", password: "password")
 
-
-admin = User.find_or_create_by(name: 'Big Dog', email: 'bigdog@email.com', encrypted_password: 'password', is_admin: true)
-user =  User.find_or_create_by(name: 'Little Dog', email: 'littledog@email.com', encrypted_password: 'password', is_admin: false)
 

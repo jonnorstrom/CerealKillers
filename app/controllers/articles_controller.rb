@@ -1,4 +1,4 @@
-class ArticlesController < ActionController::Base
+class ArticlesController < ApplicationController
   include ApplicationHelper
 
   # GET articles, "featured": limit to 5 most recent
@@ -47,4 +47,3 @@ class ArticlesController < ActionController::Base
    end
 end
 
-end

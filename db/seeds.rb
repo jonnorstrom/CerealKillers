@@ -6,5 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+  User.create(id: 1, email: "admin@admin.com", name: "dukeg", password:"password")
+  User.create(id: 2, email: "e@e.com", name:"ello21", password: "password")
 
-  User.create(id: 1, email: "e@e.com", name: "ello21", is_admin: true, created_at: nil, updated_at: nil, encrypted_password: "", remember_created_at: nil, sign_in_count: 0, current_sign_in_at: nil, last_sign_in_at: nil, current_sign_in_ip: nil, last_sign_in_ip: nil)
+
+

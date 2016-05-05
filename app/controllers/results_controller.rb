@@ -1,2 +1,2 @@
-class ResultsController < ActionController::Base
+class ResultsController < ApplicationController
 end

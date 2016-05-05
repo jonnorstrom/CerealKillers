@@ -1,21 +1,25 @@
 class RevisionsController < ActionController::Base
   def new
+    @article = Article.find(params[:id])
     @revision = Revision.new
     render 'new'
   end
 
   def create
-    @revision = Revision.new(params[:revision])
-
-    if @revision.save?
-      # do something
+    @article = Article.find(params[:id])
+    p @article
+    p @article.creator
+    @revision = @article.revisions.new(body: params[:body], user_id: @article.creator.id)
+    p @revision
+    if @revision.save
+      redirect_to root_path
     else
-      # render something
+      render 'new'
     end
   end
 
   def index
-    # @article = Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
     @revisions = Revision.all
     # show all revisions for one speicific article
     # render something

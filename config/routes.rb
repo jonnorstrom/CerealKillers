@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/articles/:id/revisions/new" => "revisions#new", as: "new_article_revision"
   # needed to user this custom route since 'article' didn't exist yet
   # get "/revisions/new" => "revisions#new", as: "new_article_revision"
-  get "/articles/:id/revisions/:id" => "revisions#show", as: "article_revision"
+  get "/articles/:article_id/revisions/:id" => "revisions#show", as: "article_revision"
   post "/articles/:id/revisions" => "revisions#create"
 
   # CATEGORIES CONTROLLER

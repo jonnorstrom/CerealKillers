@@ -66,6 +66,10 @@
     background-color: #eee;
   }
 
+.layout_inner h1{
+   font-family: "Righteous", Georgia, Serif;
+
+}
 
 /*.user {
   border: 1px solid #000;

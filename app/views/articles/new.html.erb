@@ -11,9 +11,12 @@
     <input type="submit">
   </form> -->
   <%= form_for @article, remote: true do |f| %>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, placeholder: "Cereal Name" %>
+    <br>
+    <%= f.text_field :img_src, placeholder: "Image url" %>
+    <br>
     <%= f.hidden_field :user_id, value: "#{current_user.id}" %>
-    <%= f.submit "Submit Cereal Name" %>
+    <%= f.submit "Submit Cereal Name and Image" %>
   <% end %>
 
   <!-- <div id="ck-editor-new" style="display:none"> -->

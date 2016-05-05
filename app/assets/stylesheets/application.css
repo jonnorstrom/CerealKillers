@@ -13,3 +13,20 @@
  *= require_tree .
  *= require_self
  */
+#feature-header {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.featured-article-container {
+  border: 3px black solid;
+  margin: 15px auto;
+  max-width: 40%;
+  padding-left: 20px;
+}
+
+.featured-art-date, .featured-art-creator {
+  font-size: 12px;
+}
+
+

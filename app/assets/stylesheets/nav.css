@@ -1,0 +1,27 @@
+.layout_inner{
+  position: relative;
+  width: 60%;
+  margin: auto;
+  height: 100px;
+  border: 1px solid black;
+}
+
+.layout nav {
+  position: absolute;
+  left: 60%;
+  top: 40%;
+  display: inline-block;
+}
+
+.layout h1 {
+  position: absolute;
+  left: 8%;
+  top: -2px;
+  font-size: 3em;
+  display: inline-block;
+}
+
+.layout{
+  width: 100%;
+  border: solid 1px black;
+}

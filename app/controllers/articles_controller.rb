@@ -21,12 +21,12 @@ class ArticlesController < ApplicationController
     @article = Article.new
   end
 
-  # GET FORM to edit one article (submit => revisions#new)
+  # GET FORM to edit one article (submit => revisions#new) - Signed in user only
   def edit
     @article = Article.find(params[:id])
   end
 
-  # POST to articles
+  # POST to articles - Signed in user only
   def create
       @article = Article.new(article_params)
 
@@ -39,26 +39,7 @@ class ArticlesController < ApplicationController
           format.js { render :action => 'new' }
         end
       end
-      # if request.xhr?
-      #   puts "AJAX"
-      #   if @article.save
-      #     puts "SAVED"
-      #     # respond with ck editor form
-      #     # render partial: "form", locals: {article: @article}, layout: false
-      #   else
-      #     render status: 404
-      #   end
-      # else
-      #   puts "NOT AJAX"
-      #     # TO DO: send errors
-      #     render 'new'
-      #   end
-  end
-
-  # CUSTOM ACTION FOR AJAX
-  # def render_partial_form
-  #   @article =
-  # end
+    end
 
   # DELETE one article - ADMIN ONLY
   def destroy

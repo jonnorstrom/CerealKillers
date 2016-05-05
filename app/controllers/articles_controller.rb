@@ -7,7 +7,11 @@ class ArticlesController < ApplicationController
     # snippet method helper
   end
 
-  # Show page is revisions#show. Article is title only.
+  # Display is in revisions#show. "Article" is title only.
+  # def show
+  #   @article = Article.find(params[:id])
+  #   @last_revision = @article.revisions.last
+  # end
 
   # GET FORM for new article
   def new

@@ -2,7 +2,8 @@ class RevisionsController < ApplicationController
   def new
     @article = Article.find(params[:id])
     if @article.revisions.count > 0
-      @prev_revision = @article.revisions.last.body.chomp
+      @prev_revision = @article.revisions.last
+      @prev_revision_body = @prev_revision.body.chomp
     end
     @revision = Revision.new
     render 'new'
@@ -19,10 +20,9 @@ class RevisionsController < ApplicationController
   end
 
   def index
-    @article = Article.find(params[:article_id])
+    @article = Article.find(params[:id])
     @revisions = Revision.all
-    # show all revisions for one speicific article
-    # render something
+    render 'index'
   end
 
   def show

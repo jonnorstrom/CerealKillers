@@ -5,8 +5,10 @@
 <!-- 5 most recent -->
 <% @articles.each do |article| %>
 
+
   <div id="#{article.id}" class="featured-article-container">
     <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
+    <%= image_tag(article.img_src) %>
     <h3> <%= link_to(article.title, :controller => "revisions", :action => "show", article_id: article.id, id: article.revisions.last.id) %></h3>
 
     <p class="featured-article-cat"><%= render article.categories %> </p>

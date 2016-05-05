@@ -79,7 +79,7 @@ i = 1
 end
 ###############################################
 i = 1
-50.times do
+51.times do
   Revision.create(user_id: 1, article_id: i, body: "<p>NOOOOOOOOOM.noooooooom.Noooooooooom.nOOOOOOOm.</p>")
   i += 1
   if i >50

@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
     # ARTICLES CONTROLLER
    get "/articles" => "articles#index", as: "articles"
-   get "/articles/:id" => "articles#show", as: "article"
    get "/articles/new" => "articles#new", as: "new_article"
+   get "/articles/:id" => "articles#show", as: "article"
+
    post "/articles" => "articles#create"
    # ADMIN ONLY
    delete "/articles/:id" => "articles#destroy"
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
 
   #ADMIN CONTROLLER
   get "/admins" => "admins#index", as: "admins"
-  post "/admins/:id" => "admins#create"
+  put "/admins" => "admins#update"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

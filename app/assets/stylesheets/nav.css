@@ -1,29 +1,44 @@
 .layout_inner{
-  position: relative;
-  width: 60%;
+  width: 720px;
   margin: auto;
   height: 100px;
-  border: 1px solid black;
+  text-align: center;
 }
 
 .layout nav {
-  position: absolute;
-  left: 60%;
-  top: 40%;
+  font-family: "Times New Roman", Georgia, Serif;
   display: inline-block;
+  position: absolute;
+  right: 15px;
+  bottom: 5px;
 }
 
 .layout h1 {
-  position: absolute;
-  left: 8%;
-  top: -2px;
+  font-family: "Times New Roman", Georgia, Serif;
   font-size: 3em;
   display: inline-block;
 }
 
 .layout{
+  position: relative;
   width: 100%;
-  border: solid 1px black;
+}
+
+.rev-heading {
+  text-align: center;
+  width: 800px;
+  margin: auto;
+}
+
+.article-body-container {
+  width: 900px;
+  margin: auto;
+}
+
+#revision-history {
+  font-size: 18px;
+  position: relative;
+  bottom: 9px;
 }
 
 

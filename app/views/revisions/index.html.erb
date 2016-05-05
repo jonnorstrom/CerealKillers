@@ -1,0 +1,13 @@
+<div class="rev-heading">
+  <h2><%= @article.title %> has <%= pluralize(@article.revisions.count, "revision") %></h2>
+  <p><%= link_to "Edit this Article", new_article_revision_path(@article) %></p>
+</div>
+<% @revisions.reverse.each_with_index do |revision, index| %>
+<div id="#{@article.id}" class="featured-article-container">
+  <p>
+    <a href="/articles/<%=@article.id%>/revisions/<%=revision.id%>">Revision <%= index + 1 %></a> | Revised by: <%=revision.reviser.name%>
+  </p>
+  <p class="featured-art-date">Revised: <%= revision.created_at.strftime("%A, %b %d, %Y") %></p>
+    <p class="featured-article-snippet"> <%= raw revision.body.split(".")[3..5].join(". ") %>...</p>
+  </div>
+<% end %>

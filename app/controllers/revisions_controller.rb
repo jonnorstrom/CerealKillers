@@ -21,13 +21,13 @@ class RevisionsController < ApplicationController
 
   def index
     @article = Article.find(params[:id])
-    @revisions = Revision.all
+    @revisions = @article.revisions.all
     render 'index'
   end
 
   def show
     @article = Article.find(params[:article_id])
-    @revision = @article.revisions.last
+    @revision = Revision.find(params[:id])
     render 'show'
     # show one specific revision for any given article
     # render something

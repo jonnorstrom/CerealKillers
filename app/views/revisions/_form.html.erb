@@ -1,6 +1,5 @@
 <script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
-<h2><%= @prev_revision.article.title %></h2>
-<form style="width: 700px;" class="editor" action="/articles/<%=@article.id%>/revisions" method="post">
+<form style="margin: auto; width: 900px;" class="editor" action="/articles/<%=@article.id%>/revisions" method="post">
   <% if @prev_revision %>
     <textarea name="body" id="revision_editor"><%=@prev_revision_body%></textarea>
   <% else %>

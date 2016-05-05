@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   include ApplicationHelper
+  # tells rails to respond to js, needed for ajax
+  respond_to :html, :js
+
 
   # GET articles, "featured": limit to 5 most recent
   def index
@@ -15,24 +18,28 @@ class ArticlesController < ApplicationController
 
   # GET FORM for new article
   def new
-      @article = Article.new
+    @article = Article.new
   end
 
-  # GET FORM to edit one article (submit => revisions#new)
+  # GET FORM to edit one article (submit => revisions#new) - Signed in user only
   def edit
     @article = Article.find(params[:id])
   end
 
-  # POST to articles
+  # POST to articles - Signed in user only
   def create
       @article = Article.new(article_params)
-      if @article.save
-        redirect_to @article
-      else
-        # TO DO: send errors
-        render 'new'
+
+      respond_to do |format|
+        if @article.save
+          format.html { redirect_to articles_path, :notice => "Successfully created article" }
+          format.js   # renders create.js.erb, which could be used to redirect via javascript
+        else
+          format.html { render :action => 'new' }
+          format.js { render :action => 'new' }
+        end
       end
-  end
+    end
 
   # DELETE one article - ADMIN ONLY
   def destroy

@@ -7,5 +7,5 @@ class CreateArticles < ActiveRecord::Migration
     end
   end
 
-  add_index(:articles, :title)
+  # add_index(:articles, :title)
 end

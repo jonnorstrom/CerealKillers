@@ -31,7 +31,9 @@ Rails.application.routes.draw do
   get "/admins" => "admins#index", as: "admins"
   put "/admins" => "admins#update"
 
-  #Search route
+
+  #Elastic search controller
+
   get 'search', to: 'search#search'
 
   # The priority is based upon order of creation: first created -> highest priority.

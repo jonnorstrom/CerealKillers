@@ -1,8 +1,10 @@
 # require 'elasticsearch/model'
 
 class Article < ActiveRecord::Base
+
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+
 
   has_many :categorizations
   has_many :categories, through: :categorizations
@@ -11,6 +13,7 @@ class Article < ActiveRecord::Base
   has_many :revisers, through: :revisions
 
   belongs_to :creator, class_name: "User", foreign_key: "user_id"
+
 
   def as_indexed_json(options={})
     as_json(
@@ -24,3 +27,5 @@ class Article < ActiveRecord::Base
   # validates :user_id, :title, presence: true
 end
 Article.import # for auto sync model with elastic search
+
+

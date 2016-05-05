@@ -12,7 +12,6 @@
   <% @articles.each do |article| %>
     <li>
       <h3>
-
         <%= link_to(article.title, :controller => "revisions", :action => "show", article_id: article.id, id: article.revisions.last.id) %>
       </h3>
     </li>

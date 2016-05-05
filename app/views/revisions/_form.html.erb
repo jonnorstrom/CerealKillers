@@ -1,6 +1,7 @@
 <script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
-<form style="width: 700px;" class="editor" action="/revisions" method="post">
-  <textarea name="editor"></textarea>
-  <script>CKEDITOR.replace( 'editor' );
+<form style="width: 700px;" class="editor" action="/articles/<%=@article.id%>/revisions" method="post">
+  <textarea name="body" id="revision-editor"></textarea>
+  <script>CKEDITOR.replace( 'revision-editor' );
   </script>
+  <input type="submit">
 </form>

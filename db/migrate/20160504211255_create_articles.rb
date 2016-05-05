@@ -6,6 +6,4 @@ class CreateArticles < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
-
-  add_index(:articles, :title)
 end

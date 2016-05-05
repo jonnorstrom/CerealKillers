@@ -21,7 +21,6 @@ class ArticlesController < ActionController::Base
   # POST to articles
   def create
       @article = Article.new(article_params)
-
       if @article.save
         redirect_to @article
       else
@@ -44,6 +43,4 @@ class ArticlesController < ActionController::Base
    def article_params
     params.require(:article).permit(:title)
    end
-end
-
 end

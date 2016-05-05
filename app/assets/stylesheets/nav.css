@@ -7,6 +7,7 @@
 }
 
 .layout nav {
+  font-family: "Times New Roman", Georgia, Serif;
   position: absolute;
   right: 10px;
   bottom: 5px;
@@ -14,6 +15,7 @@
 }
 
 .layout h1 {
+  font-family: "Times New Roman", Georgia, Serif;
   position: absolute;
   left: 15px;
   font-size: 3em;

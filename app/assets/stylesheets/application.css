@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 #feature-header {
   margin-top: 50px;
   text-align: center;
@@ -28,5 +32,3 @@
 .featured-art-date, .featured-art-creator {
   font-size: 12px;
 }
-
-

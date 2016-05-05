@@ -5,7 +5,7 @@
 
 <div id="#{article.id}" class="featured-article-container">
   <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
-  <% if article.creator.name %>
+  <%if article.creator.name %>
     <p class="featured-art-creator">By: <%= article.creator.name %></p>
   <% end %>
   <p class="featured-art-date">Date: <%= article.created_at.strftime("%A, %b %d, %Y") %></p>

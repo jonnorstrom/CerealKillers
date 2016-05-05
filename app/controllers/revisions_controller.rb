@@ -12,6 +12,7 @@ class RevisionsController < ApplicationController
   def create
     @article = Article.find(params[:id])
     @revision = @article.revisions.new(body: params[:body], user_id: @article.creator.id)
+    puts @revision
     if @revision.save
       redirect_to article_revision_path(@article, @revision)
     else

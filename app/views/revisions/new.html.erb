@@ -1,1 +1,13 @@
-<%= render 'form' %>
+<div class="new_article">
+  <h2><%= @prev_revision.article.title %></h2>
+  <p style="text-align: center;">
+    <strong><span style="background-color:#FFFF00;">Notice:</span></strong>
+    <span style="background-color:#FFFF00;">
+      Below is a template for what we think is the best way to represent your cereal!
+     </span>
+  </p>
+  <p style="text-align: center;"><strong><span style="background-color:#FFFF00;">
+    Do not delete section titles!</span></strong>
+  </p>
+  <%= render 'form' %>
+</div>

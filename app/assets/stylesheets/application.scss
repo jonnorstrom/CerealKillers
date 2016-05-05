@@ -1,0 +1,71 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+* {
+  font-family: 'Roboto', sans-serif;
+
+}
+
+body {
+  margin: 0 auto;
+}
+
+
+html {
+  background-color: rgb(251, 234, 80);
+  background-image: url(image-path("CerealKillersbanner.jpg"));
+}
+
+#feature-header {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 28px;
+  text-align: center;
+  background-color: #ffcc00;
+  max-width: 60%;
+  margin: 50px auto 0 auto;
+  color: rgb(179, 0, 0);
+  -webkit-box-shadow: 0 6px 4px -4px black;
+  -moz-box-shadow: 0 6px 4px -4px black;
+  box-shadow: 0 6px 4px -4px black;
+}
+
+#feature-container {
+
+   width: 60%;
+   margin: 0 auto;
+}
+
+.featured-article-container {
+  border: 4px #ffcc00 solid;
+  border-radius: 3px;
+  margin: 15px auto;
+  max-width: 100%;
+  padding-left: 20px;
+  background-color: rgb(251, 234, 80);
+  -webkit-box-shadow: 0 6px 4px -4px black;
+  -moz-box-shadow: 0 6px 4px -4px black;
+  box-shadow: 0 6px 4px -4px black;
+}
+
+.featured-art-date, .featured-art-creator {
+  font-size: 12px;
+}
+
+
+a {
+  color: rgb(179, 0, 0)
+}
+

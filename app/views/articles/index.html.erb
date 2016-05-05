@@ -5,7 +5,9 @@
 
 <div id="#{article.id}" class="featured-article-container">
   <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
-  <p class="featured-art-creator">By: <%= article.creator.name %></p>
+  <%if article.creator.name %>
+    <p class="featured-art-creator">By: <%= article.creator.name %></p>
+  <% end %>
   <p class="featured-art-date">Date: <%= article.created_at.strftime("%A, %b %d, %Y") %></p>
   <h3> <%= link_to(article.title, article_path(article)) %></h3>
   <p class="featured-article-snippet"> <%= raw article.revisions.last.body.split(".")[0..1].join(". ") %>...</p>

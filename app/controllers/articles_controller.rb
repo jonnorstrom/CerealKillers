@@ -1,5 +1,8 @@
 class ArticlesController < ApplicationController
   include ApplicationHelper
+  # tells rails to respond to js, needed for ajax
+  respond_to :html, :js
+
 
   # GET articles, "featured": limit to 5 most recent
   def index
@@ -16,10 +19,6 @@ class ArticlesController < ApplicationController
   # GET FORM for new article
   def new
     @article = Article.new
-
-    if request.xhr?
-
-    else
   end
 
   # GET FORM to edit one article (submit => revisions#new)
@@ -30,14 +29,36 @@ class ArticlesController < ApplicationController
   # POST to articles
   def create
       @article = Article.new(article_params)
-      if @article.save
-        # send response to ajax
-        # pop up ck editor form
-      else
-        # TO DO: send errors
-        render 'new'
+
+      respond_to do |format|
+        if @article.save
+          format.html { redirect_to articles_path, :notice => "Successfully created article" }
+          format.js   # renders create.js.erb, which could be used to redirect via javascript
+        else
+          format.html { render :action => 'new' }
+          format.js { render :action => 'new' }
+        end
       end
+      # if request.xhr?
+      #   puts "AJAX"
+      #   if @article.save
+      #     puts "SAVED"
+      #     # respond with ck editor form
+      #     # render partial: "form", locals: {article: @article}, layout: false
+      #   else
+      #     render status: 404
+      #   end
+      # else
+      #   puts "NOT AJAX"
+      #     # TO DO: send errors
+      #     render 'new'
+      #   end
   end
+
+  # CUSTOM ACTION FOR AJAX
+  # def render_partial_form
+  #   @article =
+  # end
 
   # DELETE one article - ADMIN ONLY
   def destroy

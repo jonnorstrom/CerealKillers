@@ -7,5 +7,5 @@ class Article < ActiveRecord::Base
 
   belongs_to :creator, class_name: "User", foreign_key: "user_id"
 
-  validates :user_id, :title, presence: true
+  # validates :user_id, :title, presence: true
 end

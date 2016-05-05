@@ -47,4 +47,4 @@ class ArticlesController < ActionController::Base
    end
 end
 
-end
+# end

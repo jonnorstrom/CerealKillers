@@ -1,7 +1,9 @@
 class RevisionsController < ApplicationController
   def new
     @article = Article.find(params[:id])
-    @prev_revision = @article.revisions.last
+    if @article.revisions.count > 0
+      @prev_revision = @article.revisions.last.body.chomp
+    end
     @revision = Revision.new
     render 'new'
   end
@@ -26,7 +28,7 @@ class RevisionsController < ApplicationController
   def show
     @article = Article.find(params[:article_id])
     @revision = @article.revisions.last
-    p made it
+    render 'show'
     # show one specific revision for any given article
     # render something
   end

@@ -1,4 +1,4 @@
-class RevisionsController < ActionController::Base
+class RevisionsController < ApplicationController
   def new
     @article = Article.find(params[:id])
     @prev_revision = @article.revisions.last

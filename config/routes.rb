@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get "/articles/:article_id/revisions/:id" => "revisions#show", as: "article_revision"
   post "/articles/:id/revisions" => "revisions#create"
 
+  # CATEGORIES CONTROLLER
+  get "/categories/:id" => "categories#show", as: "category"
   # USERS CONTROLLER - ADMIN ONLY
   # get "/users/:id" => "users#show", as: "user"
   # put "/users/:id" => "users#update"

@@ -13,18 +13,19 @@ Rails.application.routes.draw do
 
    # REVISIONS CONTROLLER
   get "/articles/:id/revisions" => "revisions#index", as: "article_revisions"
-  get "/articles/:id/revisions/new" => "revision#new", as: "new_article_revision"
+  get "/articles/:id/revisions/new" => "revisions#new", as: "new_article_revision"
   # needed to user this custom route since 'article' didn't exist yet
   # get "/revisions/new" => "revisions#new", as: "new_article_revision"
   get "/articles/:id/revisions/:id" => "revisions#show", as: "article_revision"
-  post "articles/:id/revisions" => "revisions#create"
+  post "/articles/:id/revisions" => "revisions#create"
 
   # USERS CONTROLLER - ADMIN ONLY
   # get "/users/:id" => "users#show", as: "user"
   # put "/users/:id" => "users#update"
   # delete "/users/:id" => "users#destroy"
 
-
+  #ADMIN CONTROLLER
+  get "/admins" => "admins#index", as: "admins"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

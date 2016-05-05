@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 
 Started GET "/" for ::1 at 2016-05-04 14:49:36 -0500
@@ -782,3 +783,5 @@ Started GET "/assets/application.self-3b8dabdc891efe46b9a144b400ad69e37d7e5876bd
 
 
 Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-05-04 19:16:46 -0500
+=======
+>>>>>>> master

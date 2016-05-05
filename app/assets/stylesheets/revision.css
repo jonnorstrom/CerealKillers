@@ -4,6 +4,7 @@
   margin: auto;
 }
 #revision_show{
+  position: relative;
   margin-top: 30px;
 }
 .revision_links{
@@ -27,4 +28,41 @@
 
 .new_article h2 {
   text-align: center;
+}
+
+#notice {
+  font-size: 15px;
+  color: rgb(253, 90, 78);
+  text-align: center;
+}
+
+#do-not-delete {
+  position: relative;
+  bottom: 5px;
+  font-size: 15px;
+  color: rgb(253, 90, 78);
+  text-align: center;
+}
+
+.sections {
+  padding-right: 15px;
+  padding-left: 15px;
+  border: 3px rgb(253, 90, 78) solid;
+  border-radius: 3px;
+  text-align: left;
+  position: absolute;
+  top: 85px;
+  left: 60px;
+}
+
+.sections h4 {
+  text-align: center;
+  color: rgb(253, 90, 78);
+}
+
+.revision_body {
+  padding: 4px;
+  background-color: white;
+  border: 2px white solid;
+  border-radius: 4px;
 }

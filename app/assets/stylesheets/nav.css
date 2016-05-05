@@ -1,30 +1,27 @@
 .layout_inner{
-  position: relative;
-  width: 900px;
+  width: 720px;
   margin: auto;
   height: 100px;
-  border: 1px solid black;
+  text-align: center;
 }
 
 .layout nav {
   font-family: "Times New Roman", Georgia, Serif;
-  position: absolute;
-  right: 10px;
-  bottom: 5px;
   display: inline-block;
+  position: absolute;
+  right: 15px;
+  bottom: 5px;
 }
 
 .layout h1 {
   font-family: "Times New Roman", Georgia, Serif;
-  position: absolute;
-  left: 15px;
   font-size: 3em;
   display: inline-block;
 }
 
 .layout{
+  position: relative;
   width: 100%;
-  border: solid 1px black;
 }
 
 .rev-heading {

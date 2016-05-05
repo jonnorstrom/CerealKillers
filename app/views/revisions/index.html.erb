@@ -1,0 +1,8 @@
+<h3><%= @article.title %> has <%= pluralize(@article.revisions.count, "revision") %></h3>
+<%= link_to "Edit this Article", new_article_revision_path(@article) %>
+
+<% @revisions.each_with_index do |revision, index| %>
+<p>
+  <a href="/articles/<%=@article.id%>/revisions/<%=revision.id%>">Revision <%= index + 1 %></a>
+</p>
+<% end %>

@@ -9,10 +9,8 @@
   <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
   <h3> <%= link_to(article.title, :controller => "revisions", :action => "show", article_id: article.id, id: article.revisions.last.id) %></h3>
 
-<p class="featured-article-cat"><%= render article.categories %> </p>
-<%if article.categories %>
   <p class="featured-article-cat"><%= render article.categories %> </p>
-<% end %>
+
   <% if article.revisions.last %>
     <p class="featured-art-date">Last Revised: <%= article.revisions.last.created_at.strftime("%A, %b %d, %Y") %></p>
   <% end %>

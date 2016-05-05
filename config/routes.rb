@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   # put "/users/:id" => "users#update"
   # delete "/users/:id" => "users#destroy"
 
-
+  #ADMIN CONTROLLER
+  get "/admins" => "admins#index", as: "admins"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

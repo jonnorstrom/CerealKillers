@@ -1,1 +1,14 @@
-<h1>CerealWiki</h1>
+
+<h2>Featured Articles</h2>
+<!-- 5 most recent -->
+<% @articles.each do |article| %>
+
+<div class="featured-article-container">
+  <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
+  <p class="featured-art-creator">By: <%= article.creator.username %></p>
+  <p class="featured-art-date">Date: <%= article.created_at.strftime("%A %b %d") %></p>
+  <h3> <%= article.title %></h3>
+  <p class="featured-article-snippet"> <%= raw article.revisions.last.body.split(".")[0..1].join(". ") %>...</p>
+</div>
+
+<% end %>

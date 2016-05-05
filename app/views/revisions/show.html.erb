@@ -1,5 +1,19 @@
-<div class="article-body-container">
-  <h2><%=@article.title%></h2>
-  <p id="revision-history">This article has <a href="/articles/<%=@article.id%>/revisions"><%=pluralize(@article.revisions.count, 'revision')%></a> | <%= link_to "Edit this Article", new_article_revision_path(@article) %></p>
-  <%=raw @revision.body%>
+<div id="revision_show">
+  <h3><%=@article.title%></h3>
+  <div class="revision_links">
+    <p><%= link_to "Edit this Article", new_article_revision_path(@article) %>
+    </p>
+
+    <p> This article has
+      <a href="/articles/<%=@article.id%>/revisions"><%=pluralize(@article.revisions.count, 'revisions')%></a>
+    </p>
+  </div>
+  <div class="revision_body">
+    <%=raw @revision.body%>
+  </div>
+
+  <a href="#history">History</a>
+  <a href="#about">About</a>
+  <a href="#ingredients">Ingredients</a>
+
 </div>

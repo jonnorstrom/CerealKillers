@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ##########################################
-
-User.create(name: "Duke", email: "duke@duke.com", password:"password" )
+require 'faker'
+User.create(name: "Duke", email: "d@d.com", password:"password", is_admin: true)
 User.create(name: "Erica", email: "e@e.com", password:"password" )
 User.create(name: "Rocky", email: "r@r.com.com", password:"password" )
-User.create(name: "John", email: "j@j.com.com", password:"password" )
+User.create(name: "Jon", email: "j@j.com.com", password:"password" )
 User.create(name: "Liz", email: "l@l.com.com", password:"password" )
 User.create(name: "Sean", email: "s@s.com.com", password:"password" )
 
@@ -71,7 +71,7 @@ cereals =
 
 i = 1
  cereals.each do |cereal|
-  Article.create(title: cereal, user_id: i)
+  Article.create(title: cereal, user_id: i, img_src: Faker::Placeholdit.image)
   i +=1
   if i>5
     i=1
@@ -79,16 +79,39 @@ i = 1
 end
 ###############################################
 i = 1
-51.times do
-  Revision.create(user_id: 1, article_id: i, body: "<p>NOOOOOOOOOM.noooooooom.Noooooooooom.nOOOOOOOm.</p>")
+cereals.length.times do
+  Revision.create(user_id: 1, article_id: i, body:
+  '<p><a name="history"></a></p>
+
+  <p><u><span style="font-size:36px;"><b>History &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></span></u></p>
+
+  <p style="margin-left: 40px;"><span style="font-size:14px;"><img alt="" src="http://www.quakeroats.com/images/default-source/products/life-regular-50th-detail-sflbec4155418cb46e438643ff2300547e50" style="width: 139px; height: 100px; float: right;" /><strong>This is where you can post about the history of your cereal where it came from, how it came about and things of that nature. The following is filler text. Delete this and fill in the rest...</strong><br />' + Faker::Hipster.paragraphs(1, true)[0] + '</span></p>
+
+  <p><a name="about"></a></p>
+
+  <p><b style="font-size: 36px; text-decoration: underline;">About&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></p>
+
+  <p style="margin-left: 40px;"><span style="font-size:14px;"><strong>This is where you can post about&nbsp;your cereal where it came from, how it tastes and things of that nature. The following is filler text..</strong>.<br />' + Faker::Hipster.paragraphs(1, true)[0] + '</span></p>
+
+  <p><a name="ingredients"></a></p>
+
+  <p><b style="font-size: 36px; text-decoration: underline;">Ingredients&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</b></p>
+
+  <p style="margin-left: 40px;"><span style="font-size:14px;"><strong>This is where you can post about&nbsp;your cereal its ingredients&nbsp;and things of that nature. The following is filler text..</strong>' + Faker::Hipster.paragraphs(1, true)[0] + '</span></p>
+
+  <p>&nbsp;</p>
+
+  <p>&nbsp;</p>'
+
+  )
   i += 1
-  if i >50
+  if i > cereals.count
     i=1
   end
 end
 #############################################
 
-categories = ["Crunchy", "Tasty", "Hot", "Cold"]
+categories = ["Crunchy", "Tasty", "Hot", "Cold", "Soggy", "Stale", "Delicious", "Gluten Free", "Flakey", "Sugary"]
 categories.each do |cat|
   Category.create(name: cat)
 end
@@ -97,8 +120,7 @@ c = 1
 51.times do |i|
   Categorization.create(article_id: i, category_id: c)
   c += 1
-  if c > 4
+  if c > 10
     c = 1
   end
 end
-

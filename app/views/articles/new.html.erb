@@ -12,6 +12,7 @@
   </form> -->
   <%= form_for @article, remote: true do |f| %>
     <%= f.text_field :title %>
+    <%= f.hidden_field :user_id, value: "#{current_user.id}" %>
     <%= f.submit "Submit Cereal Name" %>
   <% end %>
 

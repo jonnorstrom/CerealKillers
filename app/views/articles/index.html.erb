@@ -5,20 +5,20 @@
 <!-- 5 most recent -->
 <% @articles.each do |article| %>
 
-<div id="#{article.id}" class="featured-article-container">
-  <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
-  <h3> <%= link_to(article.title, :controller => "revisions", :action => "show", article_id: article.id, id: article.revisions.last.id) %></h3>
+  <div id="#{article.id}" class="featured-article-container">
+    <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
+    <h3> <%= link_to(article.title, :controller => "revisions", :action => "show", article_id: article.id, id: article.revisions.last.id) %></h3>
 
-  <p class="featured-article-snippet"> <%= raw article.revisions.last.body.split(".")[0..1].join(". ") %>...</p>
+    <p class="featured-article-cat"><%= render article.categories %> </p>
 
-  <% if article.revisions.last %>
-    <p class="featured-art-date">Last Revised: <%= article.revisions.last.created_at.strftime("%A, %b %d, %Y") %></p>
-  <% end %>
+    <% if article.revisions.last %>
+      <p class="featured-art-date">Last Revised: <%= article.revisions.last.created_at.strftime("%A, %b %d, %Y") %></p>
+    <% end %>
 
-  <%if article.creator.name %>
-    <p class="featured-art-creator">By: <%= article.creator.name %></p>
-  <% end %>
+    <%if article.creator.name %>
+      <p class="featured-art-creator">By: <%= article.creator.name %></p>
+    <% end %>
 
-</div>
+  </div>
 
 <% end %>

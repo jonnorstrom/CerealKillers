@@ -1,4 +1,3 @@
-<script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
 <form style="margin: auto; width: 900px;" class="editor" action="/articles/<%=@article.id%>/revisions" method="post">
   <% if @prev_revision %>
     <textarea name="body" id="revision_editor"><%=@prev_revision_body%></textarea>
@@ -6,9 +5,12 @@
     <textarea name="body" id="revision_editor"></textarea>
   <% end %>
   <script>
-  CKEDITOR.replace( 'revision_editor', {
-    allowedContent: true
-  } );
+    $(document).ready(function(){
+      // setInterval(function(){}, 800)
+      CKEDITOR.replace( 'revision_editor', {
+        allowedContent: true
+      });
+    });
   </script>
   <input type="submit">
 </form>

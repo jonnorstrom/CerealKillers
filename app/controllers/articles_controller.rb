@@ -4,6 +4,7 @@ class ArticlesController < ActionController::Base
   # GET articles, "featured": limit to 5 most recent
   def index
     @articles = Article.last(5).reverse
+    # snippet method helper
   end
 
   # Show page is revisions#show. Article is title only.

@@ -1,6 +1,7 @@
 
 <form style="width: 700px;" class="editor" action="/articles/<%=@article.id%>/revisions" method="post">
-  <textarea name="body" id="revision_editor"></textarea>
+  <input type="hidden" name="user_id" value="<%=@article.creator.id%>"></input>
+  <textarea name="body" id="revision_editor"><%= render "/revisions/revision" %> </textarea>
   <script>
   CKEDITOR.replace( 'revision_editor', {
     allowedContent: true

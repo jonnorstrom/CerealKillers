@@ -94,7 +94,7 @@ categories.each do |cat|
 end
 ##############################################
 c = 1
-14.times do |i|
+51.times do |i|
   Categorization.create(article_id: i, category_id: c)
   c += 1
   if c > 4

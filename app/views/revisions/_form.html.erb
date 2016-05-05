@@ -1,7 +1,14 @@
 <script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
 <form style="width: 700px;" class="editor" action="/articles/<%=@article.id%>/revisions" method="post">
-  <textarea name="body" id="revision-editor"></textarea>
-  <script>CKEDITOR.replace( 'revision-editor' );
+  <% if @prev_revision %>
+    <textarea name="body" id="revision_editor"><%=@prev_revision%></textarea>
+  <% else %>
+    <textarea name="body" id="revision_editor"></textarea>
+  <% end %>
+  <script>
+  CKEDITOR.replace( 'revision_editor', {
+    allowedContent: true
+  } );
   </script>
   <input type="submit">
 </form>

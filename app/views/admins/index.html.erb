@@ -1,32 +1,73 @@
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+<header class="layout">
+      <div class="layout_inner">
+        <h1>Cereal Killers Wiki</h1>
+        <nav>
+          <%= link_to "Home", root_path %>
+          <% if user_signed_in? %>
+            | <%= link_to "Make new Article", new_article_path %>
+          <% else %>
+            | <%= link_to "Sign In", new_user_session_path %> |
+            <%= link_to "Sign Up", new_user_registration_path %>
+          <% end %>
+        </nav>
+      </div>
+    </header>
 <div class='dashboard'>
   <aside class='site-stats'>
     <h3 class="stats-title">Site Stats</h3>
     <div class="side-bar-stats">
       <table>
         <tr>
-          <th>Article Count</th>
-          <th>User Count</th>
+          <td>Article Count</td>
         </tr>
         <tr>
-          <td>3</td>
-          <td>4</td>
+          <td><%= @article_count %></td>
+        </tr>
+        <tr>
+          <td>User Count</td>
+        </tr>
+        <tr>
+          <td><%= @user_count %></td>
         </tr>
       </table>
     </div>
   </aside>
-  <section>
-    <h3>Users</h3>
-    <div class='user'>
-      John
-      <button>Make Admin</button>
-    </div>
-  </section>
-    <section>
-    <h3>Admins</h3>
-    <div class='admin'>
-      John
-      <button>Remove Admin</button>
-    </div>
-  </section>
-
+    <div class="user-admin">
+      <div class="user">
+        <section>
+          <h3>Users</h3>
+          <% @users.each do |user| %>
+            <div class='user'>
+                <form action="/admins" method="post">
+                  <input name="_method" type="hidden" value="PUT" />
+                  <input type="hidden" name="id" value="<%=user.id%>" >
+                  <div id='col1'><%= user.name ||= user.email %></div>
+                  <div id='col1'><button class='button' type='submit'>Make Admin</button></div>
+                </form>
+            </div>
+          <% end %>
+        </section>
+        </div>
+        <div class="spacing">&nbsp;</div>
+        <div class="admin">
+          <section>
+            <h3>Admins</h3>
+            <% @admins.each do |admin| %>
+              <% if admin != current_user %>
+                  <div class='admin'>
+                    <form action="/admins" method="post">
+                        <input name="_method" type="hidden" value="PUT" />
+                        <input type="hidden" name="id" value="<%=admin.id%>" >
+                         <div id='col1'><%= admin.name ||= admin.email %></div>
+                         <div id='col1'><button class='button' type='submit'>Remove Admin</button></div>
+                    </form>
+                  </div>
+                <% end %>
+            <% end %>
+        </section>
+      </div>
+  </div>
 </div>

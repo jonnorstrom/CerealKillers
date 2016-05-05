@@ -2,8 +2,10 @@ class AdminsController < ActionController::Base
   include ApplicationHelper
 
   def index
-    @users = User.find_by(:is_admin => false)
-    @admins
+    @users = User.where(:is_admin => false)
+    @admins = User.where(:is_admin => true)
+    @article_count = Article.all.count
+    @user_count = User.all.count
     if current_user.is_admin == true
       render 'index'
     else
@@ -11,10 +13,25 @@ class AdminsController < ActionController::Base
     end
   end
 
-  def create
-    @user = find(params[:id])
-    if current_user.is_admin == true
+  def edit
+    params["id"]
+    @user = find(params["id"]).to_i
+  end
+
+  def update
+    @users = User.where(:is_admin => false)
+    @admins = User.where(:is_admin => true)
+    user_id = params["id"].to_i
+    @user = User.find(user_id)
+    p @user.id
+    p current_user.is_admin
+    p params["id"]
+    if current_user.is_admin == true && @user.is_admin == false
       @user.update_attributes(is_admin: true)
+      redirect_to '/admins'
+    elsif current_user.is_admin == true && @user.is_admin == true
+      @user.update_attributes(is_admin: false)
+      redirect_to '/admins'
     else
       redirect_to root_path
     end

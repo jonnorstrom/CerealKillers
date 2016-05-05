@@ -1,3 +1,4 @@
 <h3><%=@article.title%></h3>
 <%=raw @revision.body%>
 <%= link_to "Edit this Article", new_article_revision_path(@article) %>
+<p>This article has <a href="/articles/<%=@article.id%>/revisions"><%=pluralize(@article.revisions.count, 'revisions')%></a></p>

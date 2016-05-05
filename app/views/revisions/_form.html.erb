@@ -2,6 +2,12 @@
 <form style="width: 700px;" class="editor" action="/articles/<%=@article.id%>/revisions" method="post">
   <textarea name="body" id="revision-editor"></textarea>
   <script>CKEDITOR.replace( 'revision-editor' );
+        window.onload = function () {
+          var edt = CKEDITOR.replace('revision-editor', { toolbar: 'Basic' });
+          CKFinder.setupCKEditor(edt, '/ckfinder/');
+          var t = "<%=editortext.InnerText %>";
+          CKEDITOR.instances.editor1.setData(t);
+        };
   </script>
   <input type="submit">
 </form>

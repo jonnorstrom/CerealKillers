@@ -1,18 +1,16 @@
 class RevisionsController < ActionController::Base
   def new
     @article = Article.find(params[:id])
+    @prev_revision = @article.revisions.last
     @revision = Revision.new
     render 'new'
   end
 
   def create
     @article = Article.find(params[:id])
-    p @article
-    p @article.creator
     @revision = @article.revisions.new(body: params[:body], user_id: @article.creator.id)
-    p @revision
     if @revision.save
-      redirect_to root_path
+      redirect_to article_revision_path(@article, @revision)
     else
       render 'new'
     end
@@ -26,7 +24,9 @@ class RevisionsController < ActionController::Base
   end
 
   def show
-    @revision = Revision.find(params[:id])
+    @article = Article.find(params[:article_id])
+    @revision = @article.revisions.last
+    p made it
     # show one specific revision for any given article
     # render something
   end

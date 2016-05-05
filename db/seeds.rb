@@ -6,8 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-  User.create(id: 1, email: "admin@admin.com", username: "dukeg", password:"password")
-  User.create(id: 2, email: "e@e.com", username:"ello21", password: "password")
 ##########################################
 cereals =
 [
@@ -33,7 +31,7 @@ end
 ###############################################
 i = 1
 20.times do
-  Revision.create(user_id: 2, article_id: i, body: "<p>NOOOOOOOOOM.noooooooom.Noooooooooom.nOOOOOOOm.</p>")
+  Revision.create(user_id: 1, article_id: i, body: "<p>NOOOOOOOOOM.noooooooom.Noooooooooom.nOOOOOOOm.</p>")
   i += 1
   if i >14
     i=1

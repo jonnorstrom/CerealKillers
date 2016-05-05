@@ -1,12 +1,12 @@
 <script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
 <form style="width: 700px;" class="editor" action="/articles/<%=@article.id%>/revisions" method="post">
-  <textarea name="body" id="revision-editor"></textarea>
-  <script>CKEDITOR.replace( 'revision-editor' );
+  <textarea name="body" id="revision_editor"></textarea>
+  <script>CKEDITOR.replace( 'revision_editor' );
         window.onload = function () {
-          var edt = CKEDITOR.replace('revision-editor', { toolbar: 'Basic' });
+          var edt = CKEDITOR.replace('revision_editor', { toolbar: 'Basic' });
           CKFinder.setupCKEditor(edt, '/ckfinder/');
-          var t = "<%=editortext.InnerText %>";
-          CKEDITOR.instances.editor1.setData(t);
+          var t = "<%=@prev_revision.body%>";
+          CKEDITOR.instances.revision_editor.setData(t);
         };
   </script>
   <input type="submit">

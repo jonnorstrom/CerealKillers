@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
     # ARTICLES CONTROLLER
    get "/articles" => "articles#index", as: "articles"
-   get "/articles/:id" => "articles#show", as: "article"
    get "/articles/new" => "articles#new", as: "new_article"
+   get "/articles/:id" => "articles#show", as: "article"
+
    post "/articles" => "articles#create"
    # ADMIN ONLY
    delete "/articles/:id" => "articles#destroy"

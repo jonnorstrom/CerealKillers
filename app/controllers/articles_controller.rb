@@ -16,7 +16,10 @@ class ArticlesController < ApplicationController
   # GET FORM for new article
   def new
     @article = Article.new
-    render "new"
+
+    if request.xhr?
+
+    else
   end
 
   # GET FORM to edit one article (submit => revisions#new)
@@ -28,7 +31,8 @@ class ArticlesController < ApplicationController
   def create
       @article = Article.new(article_params)
       if @article.save
-        redirect_to @article
+        # send response to ajax
+        # pop up ck editor form
       else
         # TO DO: send errors
         render 'new'

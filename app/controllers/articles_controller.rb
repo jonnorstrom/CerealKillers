@@ -15,7 +15,8 @@ class ArticlesController < ApplicationController
 
   # GET FORM for new article
   def new
-      @article = Article.new
+    @article = Article.new
+    render "new"
   end
 
   # GET FORM to edit one article (submit => revisions#new)

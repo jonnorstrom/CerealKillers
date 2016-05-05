@@ -1,0 +1,23 @@
+<script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
+
+<h2 id="create-new-article-title">Create a New Cereal Article</h2>
+
+<div id="create-new-article-container" >
+
+ <!--  <form id="new-article" style="width: 700px;" action="/articles" method="post" >
+    <label for="title">Cereal Name:</label>
+
+    <input name="article[title]" value="">
+    <input type="submit">
+  </form> -->
+  <%= form_for @article, remote: true do |f| %>
+    <%= f.text_field :title %>
+    <%= f.submit "Submit Cereal Name" %>
+  <% end %>
+
+  <!-- <div id="ck-editor-new" style="display:none"> -->
+
+
+</div>
+
+

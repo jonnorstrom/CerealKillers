@@ -3,11 +3,14 @@ class ArticlesController < ApplicationController
   # tells rails to respond to js, needed for ajax
   respond_to :html, :js
 
-
   # GET articles, "featured": limit to 5 most recent
   def index
     @articles = Article.last(5).reverse
+
+    puts @articles
     @categories = Category.all
+
+
     # snippet method helper
   end
 
@@ -33,6 +36,8 @@ class ArticlesController < ApplicationController
 
       respond_to do |format|
         if @article.save
+          @article.revisions << Revision.new(body:"DEFAULT", article_id: @article.id, user_id: current_user.id)
+
           format.html { redirect_to articles_path, :notice => "Successfully created article" }
           format.js   # renders create.js.erb, which could be used to redirect via javascript
         else

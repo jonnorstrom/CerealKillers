@@ -10,6 +10,11 @@ class ArticlesController < ApplicationController
     @articles = Article.order(created_at: "ASC").paginate(:page => params[:page], :per_page => 5)
     @categories = Category.all
     # snippet method helper
+    if params[:search]
+      @articles = Article.search(params[:search]).order("created_at DESC")
+    else
+      @articles = Article.all.order("created_at DESC")
+    end
   end
 
   # Display is in revisions#show. "Article" is title only.

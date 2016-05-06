@@ -1,0 +1,23 @@
+.search-bar {
+  position: absolute;
+  margin-top: 55px;
+  margin-left: 35px;
+}
+
+.search-form {
+}
+
+input#search {
+  padding: 5px;
+
+}
+input:focus {
+    background-color: #f48fb1;
+}
+
+#search-button {
+  color: #fff;
+  background-color:#FF4081;
+  border-radius: 20%;
+  padding: 6px;
+}

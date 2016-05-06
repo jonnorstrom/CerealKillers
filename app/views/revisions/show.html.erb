@@ -1,19 +1,22 @@
+<h3 id="feature-header"><%=@article.title%></h3>
+<h3 id="deleted-confirmation feature-header"></h3>
 <div id="revision_show">
-  <h3><%=@article.title%></h3>
   <div class="revision_links">
-    <p><%= link_to "Edit this Article", new_article_revision_path(@article) %>
-    </p>
 
+
+    <% if signed_in? %>
+      <p><%= link_to "Edit this Article", new_article_revision_path(@article) %>
+      </p>
+    <% end %>
 
     <p> This article has
       <a href="/articles/<%=@article.id%>/revisions"><%=pluralize(@article.revisions.count, 'revisions')%></a>
     </p>
+
     <% if current_user != nil && current_user.is_admin == true %>
-    <form action="/articles/<%=@article.id%>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <input type="hidden" name="user_id" value="<%=@article.creator.id%>">
-      <input type="submit" value="Delete this Article">
-    </form>
+      <%= form_tag(article_path, method: "delete", remote: true) do %>
+        <div><%= submit_tag 'Delete' %></div>
+      <% end %>
     <% end %>
   </div>
   <div class="revision_body">

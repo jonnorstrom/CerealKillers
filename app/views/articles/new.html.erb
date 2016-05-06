@@ -10,7 +10,7 @@
     <input name="article[title]" value="">
     <input type="submit">
   </form> -->
-  <%= form_for @article, remote: true do |f| %>
+  <%= form_for @article, html:{id: "new-article-form-title"}, remote: true do |f| %>
     <%= f.text_field :title, placeholder: "Cereal Name" %>
     <br>
     <%= f.text_field :img_src, placeholder: "Image url" %>

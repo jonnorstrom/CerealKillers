@@ -3,18 +3,17 @@ class ArticlesController < ApplicationController
   # tells rails to respond to js, needed for ajax
   respond_to :html, :js
 
-
   # GET articles, "featured": limit to 5 most recent
   def index
     # @articles = Article.last(5).reverse
-    @articles = Article.order(created_at: "ASC").paginate(:page => params[:page], :per_page => 5)
-    @categories = Category.all
-    # snippet method helper
-    if params[:search]
-      @articles = Article.search(params[:search]).order("created_at DESC")
+     @categories = Category.all
+
+   if params[:search]
+      @articles = Article.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     else
-      @articles = Article.all.order("created_at DESC")
+      @articles = Article.order(created_at: "ASC").paginate(:page => params[:page], :per_page => 5)
     end
+
   end
 
   # Display is in revisions#show. "Article" is title only.
@@ -39,8 +38,18 @@ class ArticlesController < ApplicationController
 
       respond_to do |format|
         if @article.save
-          format.html { redirect_to articles_path, :notice => "Successfully created article" }
-          format.js   # renders create.js.erb, which could be used to redirect via javascript
+          # Add default revision to ensure that every article
+          # has at least one
+          default_revision = Revision.new(article_id: @article.id, user_id: current_user.id)
+          default_revision.set_default_text
+          if default_revision.save
+            @article.revisions << default_revision
+            format.html { redirect_to articles_path, :notice => "Successfully created article" }
+            format.js   # renders create.js.erb, which could be used to redirect via javascript
+          else
+            format.html { render :action => 'new' }
+            format.js { render :action => 'new' }
+          end
         else
           format.html { render :action => 'new' }
           format.js { render :action => 'new' }

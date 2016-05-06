@@ -13,6 +13,7 @@
 <h2 id="feature-header">Featured Cereals</h2>
 
 <div id="feature-container">
+
 <% @articles.each do |article| %>
   <div id="#{article.id}" class="featured-article-container">
     <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
@@ -32,6 +33,8 @@
     <% end %>
   </div>
 <% end %>
+<div class="paginate"><%= will_paginate @articles %></div>
+
 </div>
 
 <!-- SIDEBAR: ALL CEREAL -->

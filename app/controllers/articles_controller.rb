@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
   # GET articles, "featured": limit to 5 most recent
   def index
     @articles = Article.last(5).reverse
+    @categories = Category.all
     # snippet method helper
   end
 

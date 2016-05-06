@@ -28,27 +28,56 @@ html {
   background-image: url(image-path("CerealKillersbanner.jpg"));
 }
 
-#feature-header {
-  font-family: "Roboto", sans-serif;
-  font-weight: 900;
-  font-size: 34px;
+#cat-sidebar {
+  float: right;
+  width: 10%;
+  height: 500px;
+  margin: 5% 20px 5% 20px;
   text-align: center;
+  margin-bottom:1em;
   background-color: white;
-  max-width: 30%;
-  margin: 50px auto 0 auto;
-  color: black;
+  border: 3px red solid;
   -webkit-box-shadow: 0 10px 10px -4px black;
   -moz-box-shadow: 0 10px 10px -4px black;
   box-shadow: 0 10px 10px -4px black;
   border-radius: 8px;
   border: 3px black solid;
-  text-shadow: 0 0 10px red;
+  text-shadow: 0 0 10px yellow;
+  opacity: 0.8;
+}
+
+ul {
+  margin: 0 auto;
+  padding:0;
+}
+
+.cat-list-item {
+  text-align: center;
+  margin: 20px auto;
+  list-style: none;
+}
+
+#feature-header {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  font-size: 34px;
+  text-align: center;
+  background-color: black;
+  max-width: 30%;
+  margin: 50px auto 0 auto;
+  color: white;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  border-radius: 8px;
+  border: 3px black solid;
+  text-shadow: 0 0 10px yellow;
   opacity: 0.8;
 
 }
 
 #feature-container {
-   width: 60%;
+   width: 50%;
    margin: 0 auto;
 }
 

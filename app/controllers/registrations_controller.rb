@@ -8,6 +8,7 @@ class RegistrationsController < Devise::RegistrationsController
 # Add my attributes added to the devise User class
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+    # devise_parameter_sanitizer.permit(:sign_in, keys: [:is_admin])
   end
   # def configure_permitted_parameters
   #   devise_parameter_sanitizer.for(:account_update_params).push(:name)

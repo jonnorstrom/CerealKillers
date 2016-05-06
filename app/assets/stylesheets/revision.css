@@ -59,7 +59,7 @@
 }
 
 .notice {
-  width: 70
+  width: 70;
   -webkit-box-shadow: 0 10px 10px -4px black;
   -moz-box-shadow: 0 10px 10px -4px black;
   box-shadow: 0 10px 10px -4px black;

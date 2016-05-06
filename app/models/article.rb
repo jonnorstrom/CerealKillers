@@ -2,8 +2,8 @@
 
 class Article < ActiveRecord::Base
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
 
 
   has_many :categorizations
@@ -26,6 +26,6 @@ class Article < ActiveRecord::Base
 
   # validates :user_id, :title, presence: true
 end
-Article.import # for auto sync model with elastic search
+# Article.import force: true# for auto sync model with elastic search
 
 

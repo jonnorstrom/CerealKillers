@@ -1,15 +1,22 @@
+<!-- SIDEBAR: CATEGORIES -->
+<div id="cat-sidebar">
+  <h3>TAGS</h3>
+  <ul>
+  <% @categories.each do |cat| %>
+     <li class ="cat-list-item" ><btn class="cat-btn"><%= link_to(cat.name, :controller => "categories", :action => "show", id: cat.id) %></btn></li>
+  <% end %>
+  <ul>
+</div>
 
 
-
-<h2 id="feature-header">Featured Cereals</h2>
 <!-- 5 most recent -->
+<h2 id="feature-header">Featured Cereals</h2>
+
 <div id="feature-container">
 <% @articles.each do |article| %>
-
-
   <div id="#{article.id}" class="featured-article-container">
     <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
-    <%= image_tag(article.img_src) %>
+    <%= image_tag(article.img_src, size: "150")  %>
     <h3> <%= link_to(article.title, :controller => "revisions", :action => "show", article_id: article.id, id: article.revisions.last.id) %></h3>
 
     <p class="featured-article-cat"><%= render article.categories %> </p>
@@ -21,8 +28,11 @@
     <%if article.creator.name %>
       <p class="featured-art-creator">By: <%= article.creator.name %></p>
     <% end %>
-
   </div>
-
 <% end %>
+</div>
+
+<!-- SIDEBAR: ALL CEREAL -->
+<div id="all-cereal-sidebar">
+
 </div>

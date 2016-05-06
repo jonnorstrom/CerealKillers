@@ -28,44 +28,111 @@ html {
   background-image: url(image-path("CerealKillersbanner.jpg"));
 }
 
+#cat-sidebar {
+  float: right;
+  width: 10%;
+  height: 500px;
+  margin: 5% 20px 5% 20px;
+  text-align: center;
+  margin-bottom:1em;
+  background-color: white;
+  border: 3px red solid;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  border-radius: 8px;
+  border: 3px black solid;
+  text-shadow: 0 0 10px yellow;
+  opacity: 0.8;
+}
+
+ul {
+  margin: 0 auto;
+  padding:0;
+}
+
+.cat-list-item {
+  text-align: center;
+  margin: 20px auto;
+  list-style: none;
+}
+
 #feature-header {
   font-family: "Roboto", sans-serif;
   font-weight: 900;
-  font-size: 28px;
+  font-size: 34px;
   text-align: center;
-  background-color: #ffcc00;
-  max-width: 60%;
+  background-color: black;
+  max-width: 30%;
   margin: 50px auto 0 auto;
-  color: rgb(179, 0, 0);
-  -webkit-box-shadow: 0 6px 4px -4px black;
-  -moz-box-shadow: 0 6px 4px -4px black;
-  box-shadow: 0 6px 4px -4px black;
+  color: white;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  border-radius: 8px;
+  border: 3px black solid;
+  text-shadow: 0 0 10px yellow;
+  opacity: 0.8;
+
 }
 
 #feature-container {
-
-   width: 60%;
+   width: 50%;
    margin: 0 auto;
 }
 
 .featured-article-container {
-  border: 4px #ffcc00 solid;
-  border-radius: 3px;
+  border: 2px black solid;
+  border-radius: 28px;
   margin: 15px auto;
   max-width: 100%;
-  padding-left: 20px;
+  padding: 20px;
   background-color: rgb(251, 234, 80);
-  -webkit-box-shadow: 0 6px 4px -4px black;
-  -moz-box-shadow: 0 6px 4px -4px black;
-  box-shadow: 0 6px 4px -4px black;
+ -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+}
+
+.featured-article-container img, .featured-article-container h3, .featured-article-cat {
+  display: inline;
+  vertical-align: top;
+  margin-right: 10px;
+}
+
+.featured-article-container img{
+  border: #ffcc00 3px solid ;
 }
 
 .featured-art-date, .featured-art-creator {
-  font-size: 12px;
+  font-size: 16px;
 }
-
 
 a {
   color: rgb(179, 0, 0)
 }
 
+.cat-btn {
+  background: green;
+  background-image: -webkit-linear-gradient(top, green, green);
+  background-image: -moz-linear-gradient(top, green, green);
+  background-image: -ms-linear-gradient(top, green, green);
+  background-image: -o-linear-gradient(top, green, green);
+  background-image: linear-gradient(to bottom, green, green);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 7px 8px 8px 8px;
+  text-decoration: none;
+}
+
+.cat-btn:hover {
+  text-decoration: none;
+}
+
+.cat-btn a {
+  color: white;
+  text-decoration: none;
+}

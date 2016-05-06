@@ -23,9 +23,6 @@ class AdminsController < ActionController::Base
     @admins = User.where(:is_admin => true)
     user_id = params["id"].to_i
     @user = User.find(user_id)
-    p @user.id
-    p current_user.is_admin
-    p params["id"]
     if current_user.is_admin == true && @user.is_admin == false
       @user.update_attributes(is_admin: true)
       redirect_to '/admins'

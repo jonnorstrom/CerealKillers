@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
 
   # GET articles, "featured": limit to 5 most recent
   def index
-    @articles = Article.last(5).reverse
+    # @articles = Article.last(5).reverse
+    @articles = Article.order(created_at: "ASC").paginate(:page => params[:page], :per_page => 5)
     @categories = Category.all
     # snippet method helper
     if params[:search]
@@ -49,11 +50,14 @@ class ArticlesController < ApplicationController
 
   # DELETE one article - ADMIN ONLY
   def destroy
-    if admin # TO DO: ASK ROCKY/LIZ ABOUT DEVISE
+    @user = User.find(params[:user_id])
+    if @user.is_admin == true # TO DO: ASK ROCKY/LIZ ABOUT DEVISE
       @article = Article.find(params[:id])
+      @article.revisions.destroy_all
       @article.destroy
+      redirect_to root_path
     else
-      redirect_to articles_path
+      render 'revisions/show'
     end
   end
 
@@ -62,4 +66,3 @@ class ArticlesController < ApplicationController
     params.require(:article).permit(:title, :user_id, :img_src)
    end
 end
-

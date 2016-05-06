@@ -1,0 +1,27 @@
+.sign-up {
+  position: relative;
+  top: 20px;
+  background-color: #fbea50;
+  border-radius: 10px;
+  border: 1px black solid;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  padding: 15px;
+  width: 400px;
+  margin: auto;
+}
+
+.log-in {
+  position: relative;
+  top: 20px;
+  background-color: #fbea50;
+  border-radius: 10px;
+  border: 1px black solid;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  padding: 15px;
+  width: 400px;
+  margin: auto;
+}

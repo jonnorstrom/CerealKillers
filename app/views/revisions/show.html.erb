@@ -3,6 +3,14 @@
   <div class="revision_links">
     <p><%= link_to "Edit this Article", new_article_revision_path(@article) %>
     </p>
+    <% if current_user != nil && current_user.is_admin == true %>
+      <form action="/articles/<%=@article.id%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="user_id" value="<%=@article.creator.id%>">
+        <input type="submit" value="Delete this Article">
+      </form>
+    <% end %>
+
 
     <p> This article has
       <a href="/articles/<%=@article.id%>/revisions"><%=pluralize(@article.revisions.count, 'revisions')%></a>

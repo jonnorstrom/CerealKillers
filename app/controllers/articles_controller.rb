@@ -57,35 +57,39 @@ class ArticlesController < ApplicationController
       end
     end
 
-  # DELETE one article - ADMIN ONLY
-  def destroy
-    @user = User.find(params[:user_id])
-    if @user.is_admin == true # TO DO: ASK ROCKY/LIZ ABOUT DEVISE
-      @article = Article.find(params[:id])
-      @article.revisions.destroy_all
-      @article.destroy
-      redirect_to root_path
-    else
-      render 'revisions/show'
-    end
-  end
 
   def destroy
     respond_to do |format|
-    @user = User.find(params[:user_id])
-      if @user.is_admin == true # TO DO: ASK ROCKY/LIZ ABOUT DEVISE
+      # user_id = (params[:user_id]).to_i
+      # @user = User.find(user_id)
+      if current_user.is_admin == true # TO DO: ASK ROCKY/LIZ ABOUT DEVISE
         @article = Article.find(params[:id])
         @article.revisions.destroy_all
         @article.destroy
-        format.html { redirect_to articles_path, :notice => "Successfully deleted article" }
+        p "Destroying article now"
+        print "||||||||||||||||||||||||||||||||"
+        format.html { redirect_to article_revision_path, :notice => "Successfully deleted article" }
         format.js
       else
-        format.html { render :action => 'new' }
-        format.js { render :action => 'new' }
+        p "Unable to destroy article"
+        print "||||||||||||||||||||||||||||||||"
+        render 'revisions/show'
       end
     end
   end
 
+  # DELETE one article - ADMIN ONLY
+  # def destroy
+  #   @user = User.find(params[:user_id])
+  #   if @user.is_admin == true # TO DO: ASK ROCKY/LIZ ABOUT DEVISE
+  #     @article = Article.find(params[:id])
+  #     @article.revisions.destroy_all
+  #     @article.destroy
+  #     redirect_to root_path
+  #   else
+  #     render 'revisions/show'
+  #   end
+  # end
   private
    def article_params
     params.require(:article).permit(:title, :user_id, :img_src)

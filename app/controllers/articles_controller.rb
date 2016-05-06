@@ -70,6 +70,22 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def destroy
+    respond_to do |format|
+    @user = User.find(params[:user_id])
+      if @user.is_admin == true # TO DO: ASK ROCKY/LIZ ABOUT DEVISE
+        @article = Article.find(params[:id])
+        @article.revisions.destroy_all
+        @article.destroy
+        format.html { redirect_to articles_path, :notice => "Successfully deleted article" }
+        format.js
+      else
+        format.html { render :action => 'new' }
+        format.js { render :action => 'new' }
+      end
+    end
+  end
+
   private
    def article_params
     params.require(:article).permit(:title, :user_id, :img_src)

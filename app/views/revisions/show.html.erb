@@ -1,10 +1,14 @@
 <div id="revision_show">
   <h3><%=@article.title%></h3>
   <div class="revision_links">
-    <p><%= link_to "Edit this Article", new_article_revision_path(@article) %>
-    </p>
+
+    <% if signed_in? %>
+      <p><%= link_to "Edit this Article", new_article_revision_path(@article) %>
+      </p>
+    <% end %>
+
     <% if current_user != nil && current_user.is_admin == true %>
-      <form action="/articles/<%=@article.id%>" method="post">
+      <form id="delete-form" action="/articles/<%=@article.id%>" method="post">
         <input type="hidden" name="_method" value="delete">
         <input type="hidden" name="user_id" value="<%=@article.creator.id%>">
         <input type="submit" value="Delete this Article">

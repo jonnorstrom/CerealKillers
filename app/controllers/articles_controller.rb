@@ -6,12 +6,7 @@ class ArticlesController < ApplicationController
   # GET articles, "featured": limit to 5 most recent
   def index
     @articles = Article.last(5).reverse
-
-    puts @articles
     @categories = Category.all
-
-
-    # snippet method helper
   end
 
   # Display is in revisions#show. "Article" is title only.
@@ -36,7 +31,6 @@ class ArticlesController < ApplicationController
 
       respond_to do |format|
         if @article.save
-          puts "ARTICLE SAVED!"
           # Add default revision to ensure that every article
           # has at least one
           default_revision = Revision.new(article_id: @article.id, user_id: current_user.id)

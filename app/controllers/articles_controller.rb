@@ -6,14 +6,12 @@ class ArticlesController < ApplicationController
   # GET articles, "featured": limit to 5 most recent
   def index
     # @articles = Article.last(5).reverse
-    @articles = Article.order(created_at: "ASC").paginate(:page => params[:page], :per_page => 5)
-    @categories = Category.all
+     @categories = Category.all
 
-
-    if params[:search]
-      @articles = Article.search(params[:search]).order("created_at DESC")
+   if params[:search]
+      @articles = Article.search(params[:search]).order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
     else
-      @articles = Article.all.order("created_at DESC")
+      @articles = Article.order(created_at: "ASC").paginate(:page => params[:page], :per_page => 5)
     end
 
   end

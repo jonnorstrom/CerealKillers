@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
 
   # GET articles, "featured": limit to 5 most recent
   def index
-    @articles = Article.last(5).reverse
+    # @articles = Article.last(5).reverse
+    @articles = Article.order(created_at: "ASC").paginate(:page => params[:page], :per_page => 5)
     @categories = Category.all
     # snippet method helper
   end

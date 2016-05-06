@@ -1,8 +1,14 @@
 
 .revision_body{
-  width: 900px;
+  width: 800px;
   margin: auto;
 }
+
+.revision-text {
+  padding: 40px;
+  padding-top: 10px;
+}
+
 #revision_show{
   position: relative;
   margin-top: 30px;
@@ -15,11 +21,21 @@
 
 .revision_links p{
   margin: 2px;
-  padding: 5px;
+  padding: 3px;
   display:inline-block;
+  background-color: #fbea50;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
 }
 
 #revision_show h3{
+  background-color: #fbea50;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
   font-size: 2em;
   width: 900px;
   text-align: center;
@@ -27,7 +43,29 @@
 }
 
 .new_article h2 {
+  margin-top: 20px;
   text-align: center;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  border-radius: 10px;
+  border: 1px black solid;
+  background-color: #fbea50;
+}
+
+.sub-container {
+  width: 900px;
+  margin: auto;
+}
+
+.notice {
+  width: 70
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  border-radius: 10px;
+  border: 1px black solid;
+  background-color: #fbea50;
 }
 
 #notice {
@@ -47,12 +85,20 @@
 .sections {
   padding-right: 15px;
   padding-left: 15px;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  background-color: #fbea50;
   border: 3px rgb(253, 90, 78) solid;
-  border-radius: 3px;
+  border-radius: 9px;
   text-align: left;
   position: absolute;
   top: 85px;
   left: 60px;
+}
+
+.sections a {
+  color: rgb(253, 90, 78);
 }
 
 .sections h4 {
@@ -65,4 +111,16 @@
   background-color: white;
   border: 2px white solid;
   border-radius: 4px;
+}
+
+.new-article-form {
+  width: 900px;
+  margin: auto;
+  margin-top: 10px;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  background-color: #fbea50;
+  border: 3px rgb(253, 90, 78) solid;
+  border-radius: 9px;
 }

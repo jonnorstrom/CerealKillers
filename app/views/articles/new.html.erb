@@ -1,27 +1,28 @@
 <script src="//cdn.ckeditor.com/4.5.8/full/ckeditor.js"></script>
+<div class="new-article-form">
+  <h2 id="create-new-article-title">Create a New Cereal Article</h2>
 
-<h2 id="create-new-article-title">Create a New Cereal Article</h2>
+  <div id="create-new-article-container" >
 
-<div id="create-new-article-container" >
+   <!--  <form id="new-article" style="width: 700px;" action="/articles" method="post" >
+      <label for="title">Cereal Name:</label>
 
- <!--  <form id="new-article" style="width: 700px;" action="/articles" method="post" >
-    <label for="title">Cereal Name:</label>
+      <input name="article[title]" value="">
+      <input type="submit">
+    </form> -->
+    <%= form_for @article, html:{id: "new-article-form-title"}, remote: true do |f| %>
+      <%= f.text_field :title, placeholder: "Cereal Name" %>
+      <br>
+      <%= f.text_field :img_src, placeholder: "Image url" %>
+      <br>
+      <%= f.hidden_field :user_id, value: "#{current_user.id}" %>
+      <%= f.submit "Submit Cereal Name and Image" %>
+    <% end %>
 
-    <input name="article[title]" value="">
-    <input type="submit">
-  </form> -->
-  <%= form_for @article, html:{id: "new-article-form-title"}, remote: true do |f| %>
-    <%= f.text_field :title, placeholder: "Cereal Name" %>
-    <br>
-    <%= f.text_field :img_src, placeholder: "Image url" %>
-    <br>
-    <%= f.hidden_field :user_id, value: "#{current_user.id}" %>
-    <%= f.submit "Submit Cereal Name and Image" %>
-  <% end %>
+    <!-- <div id="ck-editor-new" style="display:none"> -->
 
-  <!-- <div id="ck-editor-new" style="display:none"> -->
+
+  </div>
 
 
 </div>
-
-

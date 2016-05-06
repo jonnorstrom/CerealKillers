@@ -36,10 +36,19 @@ class ArticlesController < ApplicationController
 
       respond_to do |format|
         if @article.save
-          @article.revisions << Revision.new(body:"DEFAULT", article_id: @article.id, user_id: current_user.id)
-
-          format.html { redirect_to articles_path, :notice => "Successfully created article" }
-          format.js   # renders create.js.erb, which could be used to redirect via javascript
+          puts "ARTICLE SAVED!"
+          # Add default revision to ensure that every article
+          # has at least one
+          default_revision = Revision.new(article_id: @article.id, user_id: current_user.id)
+          default_revision.set_default_text
+          if default_revision.save
+            @article.revisions << default_revision
+            format.html { redirect_to articles_path, :notice => "Successfully created article" }
+            format.js   # renders create.js.erb, which could be used to redirect via javascript
+          else
+            format.html { render :action => 'new' }
+            format.js { render :action => 'new' }
+          end
         else
           format.html { render :action => 'new' }
           format.js { render :action => 'new' }

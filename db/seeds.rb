@@ -20,9 +20,10 @@ cereals =
 "Addams Family Cereal – Ralston (1994)",
 "All-Bran – Kellogg's (1916 – present)",
 "Almond Delight – Ralston",
-"Alpen – Weetabix Limited",
-"Alpha-Bits – Post Cereals (1958 – present)",
-"Apple Jacks – Kellogg's (1965 – present)",
+"Alpha-Bits – Post Cereals",
+"Corn Pops",
+"Cocoa Puffs",
+"Apple Jacks – Kellogg's ",
 "Apple DJ Crashers – Kellogg's (2007)",
 "Apple Jacks Gliders – Kellogg's (2009–2010)",
 "Apple Jacks Apple Clones – Kellogg",
@@ -54,7 +55,7 @@ cereals =
 "Cookie Crisp Sprinkles (2009-2012)",
 "Vanilla Cookie Crisp (1978-Mid 1980's)",
 "Wackies – General Mills (1965–1967)",
-"Waffelos – Ralston (Late 1970s-early 1980s)",
+"Waffelos – Ralston ",
 "Waffle Crisp – Post Cereals (1996 – present)",
 "Weet-Bix – Sanitarium Health Food Company",
 "Weetabix – Weetabix Limited ",
@@ -64,14 +65,12 @@ cereals =
 "Wheat Stax – General Mills ",
 "Fruity Pebbles",
 "Wheaties – General Mills  ",
-"Wild Animal Crunch",
-"Cocoa Puffs",
-"Corn Pops"
+"Wild Animal Crunch"
 ]
 
 i = 1
  cereals.each do |cereal|
-  Article.create(title: cereal, user_id: i, img_src: Faker::Placeholdit.image)
+  Article.create(title: cereal, user_id: i, img_src: "http://www.seriouseats.com/images/2011/08/20110829-mini-cereal-boxes-10.jpg")
   i +=1
   if i>5
     i=1
@@ -129,3 +128,10 @@ i = 1
     i=1
   end
 end
+############################################
+Article.find(1).update(img_src:"http://thepoptopshop.com/osc/images/AddamsFamilyCereal.JPG")
+Article.find(2).update(img_src: "http://goodtoknow.media.ipcdigital.co.uk/111/00000a186/d3ca_orh100000w614/Kelloggs-All-Bran---500g.jpg")
+Article.find(3).update(img_src: "https://s-media-cache-ak0.pinimg.com/236x/21/d2/f2/21d2f255ffedc36ab943d4336ba070ae.jpg")
+Article.find(4).update(img_src:"http://www.couponersunited.com/wp-content/uploads/2014/10/81pMc5O0uHL._SL1500_.jpg")
+Article.find(5).update(img_src:"http://ecx.images-amazon.com/images/I/919a90D8QHL._SL1500_.jpg")
+Article.find(6).update(img_src:"https://upload.wikimedia.org/wikipedia/en/c/cf/CocoaPuffs.jpg")

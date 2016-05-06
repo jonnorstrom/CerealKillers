@@ -47,7 +47,7 @@ cereals =
 "MultiGrain Cheerios (1991 – present)",
 "Cookie Crisp cereal",
 "Cookie Crisp (1977 – present)",
-"Cookie Crisp Brownie (2013-) (available in the U.K)",
+"Cookie Crisp Brownie (2013-)",
 "Double Chocolate Cookie Crisp (2006-2008)",
 "Oatmeal Cookie Crisp (1978-1980)",
 "Peanut Butter Cookie Crisp (2005-2007)",
@@ -55,18 +55,18 @@ cereals =
 "Vanilla Cookie Crisp (1978-Mid 1980's)",
 "Wackies – General Mills (1965–1967)",
 "Waffelos – Ralston (Late 1970s-early 1980s)",
-"Waffle Crisp – Post Cereals (1996 – present) (sporadic availability)",
+"Waffle Crisp – Post Cereals (1996 – present)",
 "Weet-Bix – Sanitarium Health Food Company",
 "Weetabix – Weetabix Limited – (generic equivalent branded as 'whole-wheat biscuits' or similar)",
 "Weetabix Minis – Weetabix Limited",
 "Weetos – Weetabix Limited",
 "Wheat Honeys Nabisco",
 "Wheat Stax – General Mills – (1966)[10]",
-"Wheatena",
-"Wheaties – General Mills – 'The Breakfast of Champions' – (1924 – present)",
+"Fruity Pebbles",
+"Wheaties – General Mills – 'The Breakfast of Champions' ",
 "Wild Animal Crunch – Kellogg's (2008–2009)",
-"Yog-Active",
-"Zany Fruits - Western Family"
+"Cocoa Puffs",
+"Corn Pops"
 ]
 
 i = 1
@@ -117,10 +117,15 @@ categories.each do |cat|
 end
 ##############################################
 c = 1
-51.times do |i|
+i = 1
+100.times do
   Categorization.create(article_id: i, category_id: c)
   c += 1
   if c > 10
-    c = 1
+    c = 3
+  end
+  i+=1
+  if i>50
+    i=1
   end
 end

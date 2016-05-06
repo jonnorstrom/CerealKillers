@@ -17,6 +17,7 @@
   font-family: "Righteous", Georgia, Serif;
   font-size: 3em;
   display: inline-block;
+  text-align: center;
 }
 
 .layout{
@@ -24,9 +25,10 @@
   width: 100%;
   background-color: rgb(251, 234, 80);
   width: 100%;
-  -webkit-box-shadow: 0 6px 4px -4px black;
-  -moz-box-shadow: 0 6px 4px -4px black;
-  box-shadow: 0 6px 4px -4px black;
+  -webkit-box-shadow: 0 10px 10px -4px black;
+  -moz-box-shadow: 0 10px 10px -4px black;
+  box-shadow: 0 10px 10px -4px black;
+  border-bottom: 3px black solid;
 }
 
 .rev-heading {

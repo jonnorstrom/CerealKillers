@@ -7,6 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 ##########################################
+User.destroy_all
+Article.destroy_all
+Revision.destroy_all
+Category.destroy_all
+Categorization.destroy_all
 require 'faker'
 User.create(name: "Duke", email: "d@d.com", password:"password", is_admin: true)
 User.create(name: "Erica", email: "e@e.com", password:"password" )

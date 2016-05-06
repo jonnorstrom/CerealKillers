@@ -9,6 +9,11 @@ class ArticlesController < ApplicationController
     @articles = Article.last(5).reverse
     @categories = Category.all
     # snippet method helper
+    if params[:search]
+      @articles = Article.search(params[:search]).order("created_at DESC")
+    else
+      @articles = Article.all.order("created_at DESC")
+    end
   end
 
   # Display is in revisions#show. "Article" is title only.

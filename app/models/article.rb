@@ -15,13 +15,8 @@ class Article < ActiveRecord::Base
   belongs_to :creator, class_name: "User", foreign_key: "user_id"
 
 
-  def as_indexed_json(options={})
-    as_json(
-      only: [:id, :title],
-      # include: [:categories],
-      include: [:revisions]
-    )
-
+  def self.search(search)
+    where("title ILIKE ?", "%#{search}%")
   end
 
   # validates :user_id, :title, presence: true

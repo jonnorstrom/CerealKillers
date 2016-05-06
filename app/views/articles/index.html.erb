@@ -13,6 +13,9 @@
 <h2 id="feature-header">Featured Cereals</h2>
 
 <div id="feature-container">
+  <% if @articles.blank? %>
+      <h3 class="featured-article-container">There are no articles containing the term <%= params[:search] %>.</h3>
+    <% end %>
 <% @articles.each do |article| %>
   <div id="#{article.id}" class="featured-article-container">
     <!-- TO DO: INSERT LINKED IMAGE THUMBNAIL FOR ARTICLE -->
@@ -28,6 +31,8 @@
     <%if article.creator.name %>
       <p class="featured-art-creator">By: <%= article.creator.name %></p>
     <% end %>
+
+
   </div>
 <% end %>
 </div>
